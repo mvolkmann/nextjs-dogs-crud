@@ -27,6 +27,7 @@ const Home = () => {
     if (!confirm("Are you sure?")) return;
 
     const tr = event.currentTarget.closest("tr");
+    // It should never fail to find a `tr` that wraps the clicked button.
     if (!tr) throw new Error("tr not found");
 
     try {
@@ -42,7 +43,11 @@ const Home = () => {
 
   function handleEdit(event: React.MouseEvent<HTMLButtonElement>) {
     const tr = event.currentTarget.closest("tr");
+    // It should never fail to find a `tr` that wraps the clicked button.
     if (!tr) throw new Error("tr not found");
+
+    // This causes the name and breed of the selected dog
+    // to appear in the form at the top.
     setSelectedDog(dogMap.get(tr.id));
   }
 
@@ -57,12 +62,12 @@ const Home = () => {
         body: new FormData(form),
       });
       if (!res.ok) throw new Error("POST failed");
-      form.reset();
+      form.reset(); // clears the form inputs
       const newDog = await res.json();
       addDog(newDog);
       setSelectedDog(undefined);
     } catch (error) {
-      console.error("Error submitting dog:", error);
+      console.error("POST failed:", error);
     }
   }
 
