@@ -108,7 +108,6 @@ const Home = () => {
             defaultValue={selectedDog ? selectedDog.breed : ""}
           />
         </div>
-
         <div className="buttons">
           <button id="submit-btn">{selectedDog ? "Update" : "Add"}</button>
           {selectedDog && (
