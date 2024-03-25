@@ -137,8 +137,9 @@ const Home = () => {
                 >
                   ✕
                 </button>
-                {/* This selects the dog which triggers a selection-change event
-            which causes the form to update. */}
+                {/* This selects the dog
+                    which triggers a selection-change event,
+                    which causes the form to update. */}
                 <button
                   className="show-on-hover"
                   onClick={handleEdit}
