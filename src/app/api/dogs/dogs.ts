@@ -1,0 +1,43 @@
+import { v4 as uuidv4 } from "uuid";
+
+export type Dog = {
+  id: string;
+  name: string;
+  breed: string;
+};
+
+const dogMap = new Map<string, Dog>();
+
+addDog("Comet", "Whippet");
+addDog("Maisey", "Treeing Walker Coonhound");
+addDog("Oscar", "German Shorthaired Pointer");
+addDog("Ramsay", "Native American Indian Dog");
+
+export function addDog(name: string, breed: string): Dog {
+  const id = uuidv4();
+  const dog = { id, name, breed };
+  dogMap.set(id, dog);
+  return dog;
+}
+
+export function deleteDog(id: string): boolean {
+  return dogMap.delete(id);
+}
+
+export function getDogs(): Dog[] {
+  const dogs = Array.from(dogMap.values());
+  return dogs.sort((a: Dog, b: Dog) => a.name.localeCompare(b.name));
+}
+
+export function updateDog(
+  id: string,
+  name: string,
+  breed: string
+): Dog | undefined {
+  const dog = dogMap.get(id);
+  if (dog) {
+    dog.name = name;
+    dog.breed = breed;
+  }
+  return dog;
+}
