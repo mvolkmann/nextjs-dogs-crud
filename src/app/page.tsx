@@ -71,6 +71,7 @@ const Home = () => {
     }
   }
 
+  // Called when the page is loaded.
   async function loadDogs() {
     const res = await fetch("/api/dogs");
     const dogArray = await res.json();
