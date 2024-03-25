@@ -42,10 +42,12 @@ label {
   width: 3rem;
 }
 
+/* This is used for the table row delete and edit buttons. */
 .on-hover:hover .show-on-hover {
   visibility: visible;
 }
 
+/* This is used for the table row delete and edit buttons. */
 .show-on-hover {
   transform: scale(2.5) translate(0.2rem, 0.2rem);
   visibility: hidden;
