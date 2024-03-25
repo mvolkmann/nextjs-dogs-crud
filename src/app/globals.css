@@ -42,13 +42,13 @@ label {
   width: 3rem;
 }
 
+.on-hover:hover .show-on-hover {
+  visibility: visible;
+}
+
 .show-on-hover {
   transform: scale(2.5) translate(0.2rem, 0.2rem);
   visibility: hidden;
-}
-
-.on-hover:hover .show-on-hover {
-  visibility: visible;
 }
 
 table {
