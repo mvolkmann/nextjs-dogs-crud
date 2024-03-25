@@ -32,7 +32,7 @@ export function updateDog(
   name: string,
   breed: string
 ): Dog | undefined {
-  const dog = dogMap.get(id);
+  const dog = dogMap.get(id); // returns undefined if not found
   if (dog) {
     dog.name = name;
     dog.breed = breed;

@@ -11,7 +11,7 @@ export async function POST(req: Request) {
     const name = (formData.get("name") as string) || "";
     const breed = (formData.get("breed") as string) || "";
     const newDog = addDog(name, breed);
-    return NextResponse.json(newDog);
+    return NextResponse.json(newDog, { status: 201 });
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }

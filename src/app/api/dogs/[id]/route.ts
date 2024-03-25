@@ -7,10 +7,9 @@ type Props = {
 
 export async function DELETE(req: Request, { params: { id } }: Props) {
   const existed = deleteDog(id);
-  return NextResponse.json(
-    { error: "dog not found" },
-    { status: existed ? 200 : 404 }
-  );
+  return NextResponse.json(existed ? null : { error: "dog not found" }, {
+    status: existed ? 200 : 404,
+  });
 }
 
 export async function PUT(req: Request, { params: { id } }: Props) {
